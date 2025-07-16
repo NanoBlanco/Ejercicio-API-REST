@@ -1,4 +1,4 @@
-package com.rbservicios.api.infraestructure;
+package com.rbservicios.api.infraestructure.exceptions;
 
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.ResponseEntity;
