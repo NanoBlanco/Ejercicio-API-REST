@@ -8,6 +8,6 @@ import java.util.Optional;
 
 public interface MedicoRepository extends JpaRepository<Medico, Long> {
 	Page<Medico> findAllByActivoTrue(Pageable control);
-	Optional<Medico> findByDocmento(String documento);
+	Optional<Medico> findByDocumento(String documento);
 	
 }
