@@ -1,1 +1,1 @@
-ALTER TABLE medicos RENAME COLUMN estado TO activo;
+update medicos set activo = 1;

@@ -1,2 +1,2 @@
-ALTER TABLE medicos ADD estado BOOLEAN NOT NULL DEFAULT 1;
-update medicos set estado = 1;
+ALTER TABLE medicos ADD activo BOOLEAN NOT NULL DEFAULT 1;
+

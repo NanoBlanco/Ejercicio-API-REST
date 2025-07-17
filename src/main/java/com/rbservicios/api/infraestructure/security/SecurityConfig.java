@@ -32,8 +32,10 @@ public class SecurityConfig {
                 .sessionManagement(sm->sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(http -> {
                     http.requestMatchers(HttpMethod.POST, "/auth/**").permitAll();
+                    http.requestMatchers("/v3/api-docs/**", "/swagger-ui.html","/swagger-ui/**").permitAll();
                     http.requestMatchers("/medicos/**").authenticated();
                     http.requestMatchers("/pacientes/**").authenticated();
+                    http.requestMatchers("/consultas/**").authenticated();
                     http.anyRequest().authenticated();
                 })
                 .addFilterBefore(new JwtTokenValidator(jwtUtil), BasicAuthenticationFilter.class)
