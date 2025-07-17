@@ -17,6 +17,11 @@ import java.util.List;
 @RestControllerAdvice
 public class GestorErrores {
 
+    @ExceptionHandler(ValidacionException.class)
+    public ResponseEntity<String> errorValidacion(ValidacionException e) {
+        return ResponseEntity.badRequest().body(e.getMessage());
+    }
+
     @ExceptionHandler(EntityNotFoundException.class)
     public ResponseEntity<String> gestionarError404() {
         return ResponseEntity.notFound().build();
@@ -29,7 +34,7 @@ public class GestorErrores {
     }
 
     @ExceptionHandler(HttpMessageNotReadableException.class)
-    public ResponseEntity<String> gestionarError400(HttpMessageNotReadableException ex) {
+    public ResponseEntity<String> gestionarOtroError400(HttpMessageNotReadableException ex) {
         return ResponseEntity.badRequest().body(ex.getMessage());
     }
 
